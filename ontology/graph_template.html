@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OntoLex-Lemon · Knowledge Graph</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0f1117;color:#e2e8f0;font-family:'SF Mono','Fira Code',monospace;height:100vh;display:flex;flex-direction:column;overflow:hidden}
+header{padding:12px 20px;background:#161b27;border-bottom:1px solid #2d3748;display:flex;align-items:center;gap:14px;flex-shrink:0;flex-wrap:wrap}
+header h1{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#718096}
+.back-link{color:#718096;font-size:11px;text-decoration:none;border:1px solid #2d3748;border-radius:3px;padding:4px 10px}
+.back-link:hover{color:#e2e8f0;border-color:#4a5568}
+.legend{display:flex;gap:12px;margin-left:auto;flex-wrap:wrap}
+.li{display:flex;align-items:center;gap:6px;font-size:10px;color:#4a5568}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.ln{width:18px;height:2px;flex-shrink:0}
+.controls{padding:8px 20px;background:#0f1117;border-bottom:1px solid #1e2535;display:flex;gap:10px;align-items:center;flex-shrink:0;flex-wrap:wrap}
+.controls label{font-size:10px;color:#4a5568;text-transform:uppercase;letter-spacing:.08em}
+select,input[type=text]{background:#161b27;border:1px solid #2d3748;color:#a0aec0;padding:4px 9px;font-size:11px;font-family:inherit;border-radius:3px}
+input[type=text]{width:140px}
+select:focus,input[type=text]:focus{outline:none;border-color:#4299e1}
+.concept-picker-wrap{display:flex;align-items:center;min-width:240px;max-width:420px;flex:1 1 320px}
+.concept-picker{display:flex;flex-wrap:wrap;gap:6px;padding:4px 6px;background:#161b27;border:1px solid #2d3748;border-radius:4px;min-height:34px;max-height:120px;overflow:auto}
+.concept-chip{background:#0f1117;border:1px solid #2d3748;color:#a0aec0;padding:4px 8px;border-radius:999px;font:700 10px/1.2 'SF Mono','Fira Code',monospace;cursor:pointer;transition:border-color .12s ease, background .12s ease, color .12s ease}
+.concept-chip:hover{border-color:#4a5568;color:#e2e8f0}
+.concept-chip.selected{background:#1d4d4d;border-color:#4fd1c5;color:#d7fffb}
+.concept-chip.all{background:#1f2937;color:#cbd5e1}
+.btn{background:#161b27;border:1px solid #2d3748;color:#718096;padding:4px 12px;font-size:10px;font-family:inherit;border-radius:3px;cursor:pointer;text-transform:uppercase;letter-spacing:.08em}
+.btn:hover{border-color:#4a5568;color:#a0aec0}
+.sep{width:1px;height:18px;background:#2d3748;margin:0 2px}
+#stats{font-size:10px;color:#2d3748;margin-left:auto}
+#graph{flex:1;overflow:hidden}
+svg{width:100%;height:100%}
+.node circle{stroke-width:1.5px;cursor:pointer}
+.node text{font-size:10px;font-family:'SF Mono','Fira Code',monospace;pointer-events:none;fill:#e2e8f0}
+.link{fill:none;stroke-opacity:.5}
+.link-label{font-size:9px;font-family:'SF Mono','Fira Code',monospace;fill:#2d3748;pointer-events:none}
+.node.highlighted circle{stroke-width:3px}
+.node.dimmed{opacity:.07}
+.link.dimmed,.link-label.dimmed{opacity:.04}
+#tip{position:fixed;background:#161b27;border:1px solid #2d3748;padding:9px 13px;font-size:11px;color:#a0aec0;border-radius:5px;pointer-events:none;opacity:0;transition:opacity .1s;max-width:300px;line-height:1.65;z-index:100}
+#tip strong{color:#e2e8f0;display:block;margin-bottom:2px}
+#tip .uri{color:#4a5568;font-size:10px;word-break:break-all}
+#tip .alt{color:#718096;font-size:10px;font-style:italic;margin-top:2px;display:block}
+#tip .badge{display:inline-block;margin-top:5px;padding:1px 8px;border-radius:10px;font-size:10px}
+</style>
+</head>
+<body>
+<header>
+  <a class="back-link" href="/">&larr; Back</a>
+  <h1>OntoLex-Lemon · Knowledge Graph</h1>
+  <div class="legend" id="legend"></div>
+</header>
+<div class="controls">
+  <label>Concept</label>
+  <div class="concept-picker-wrap">
+    <div id="conceptPicker" class="concept-picker" aria-label="Select concepts"></div>
+  </div>
+  <div class="sep"></div>
+  <label>Register</label>
+  <select id="selRole"><option value="all">All</option></select>
+  <div class="sep"></div>
+  <label>Type</label>
+  <select id="selType"><option value="all">All</option></select>
+  <div class="sep"></div>
+  <label>Search</label>
+  <input type="text" id="search" placeholder="filter…">
+  <div class="sep"></div>
+  <button class="btn" id="btnReset">Reset zoom</button>
+  <button class="btn" id="btnClear">Clear</button>
+  <span id="stats"></span>
+</div>
+<div id="graph"></div>
+<div id="tip"></div>
+
+<script>
+const DATA = __GRAPH_DATA__;
+
+const C = {
+  "entry_en_CommonTerm":   "#4299e1",
+  "entry_en_ClinicalTerm": "#90cdf4",
+  "entry_es_CommonTerm":   "#48bb78",
+  "entry_es_ClinicalTerm": "#9ae6b4",
+  "entry_fr_CommonTerm":   "#f6ad55",
+  "entry_fr_ClinicalTerm": "#fbd38d",
+  "sense":    "#4a5568",
+  "disease":  "#fc8181",
+  "symptom":  "#f6e05e",
+  "default":  "#718096"
+};
+const EC = {
+  sense:"#1a2035", reference:"#9f7aea", denotes:"#6b46c1",
+  translation:"#4299e1", registerVariant:"#718096",
+  hasSymptom:"#fc8181", mayIndicate:"#f6e05e",
+  default:"#2d3748"
+};
+
+function nc(n){return C[n.type]||C.default}
+function nr(n){
+  if(n.type==="disease")  return 26;
+  if(n.type==="symptom")  return 20;
+  if(n.type.startsWith("entry_")) return 20;
+  if(n.type==="sense")    return 9;
+  return 12;
+}
+function ec(l){return EC[l]||EC.default}
+
+// Legend
+const legEl=document.getElementById("legend");
+const LEG=[
+  ["entry_en_CommonTerm","EN · lay"],["entry_en_ClinicalTerm","EN · clinical"],
+  ["entry_es_CommonTerm","ES · lay"],["entry_es_ClinicalTerm","ES · clinical"],
+  ["disease","Disease"],["symptom","Symptom"],
+];
+LEG.forEach(([t,l])=>{
+  if(!DATA.nodes.some(n=>n.type===t))return;
+  legEl.innerHTML+=`<div class="li"><div class="dot" style="background:${C[t]||C.default}"></div>${l}</div>`;
+});
+const EDGE_LEG=[
+  ["registerVariant","registerVariant"],["translation","translation"],
+  ["hasSymptom","hasSymptom"],["mayIndicate","mayIndicate"],
+];
+EDGE_LEG.forEach(([l,label])=>{
+  if(!DATA.edges.some(e=>e.label===l))return;
+  legEl.innerHTML+=`<div class="li"><div class="ln" style="background:${EC[l]}"></div>${label}</div>`;
+});
+
+// Dropdowns
+const conceptPicker=document.getElementById("conceptPicker");
+const selectedConcepts = new Set();
+
+function renderConceptPicker(){
+  conceptPicker.innerHTML = "";
+
+  const allChip = document.createElement("button");
+  allChip.type = "button";
+  allChip.className = "concept-chip all" + (selectedConcepts.size === 0 ? " selected" : "");
+  allChip.textContent = "All";
+  allChip.addEventListener("click", ()=> {
+    selectedConcepts.clear();
+    renderConceptPicker();
+    render();
+  });
+  conceptPicker.appendChild(allChip);
+
+  Object.entries(DATA.concepts).sort((a,b)=>a[1].localeCompare(b[1])).forEach(([iri,name])=>{
+    const chip = document.createElement("button");
+    chip.type = "button";
+    chip.className = "concept-chip" + (selectedConcepts.has(iri) ? " selected" : "");
+    chip.textContent = name;
+    chip.title = iri;
+    chip.addEventListener("click", ()=> {
+      if (selectedConcepts.has(iri)) {
+        selectedConcepts.delete(iri);
+      } else {
+        selectedConcepts.add(iri);
+      }
+      renderConceptPicker();
+      render();
+    });
+    conceptPicker.appendChild(chip);
+  });
+}
+
+const selR=document.getElementById("selRole");
+const ROLE_LABELS={CommonTerm:"Common / Lay",ClinicalTerm:"Clinical",unknown:"Unknown"};
+DATA.roles.forEach(r=>{
+  const o=document.createElement("option");o.value=r;o.textContent=ROLE_LABELS[r]||r;selR.appendChild(o);
+});
+const selT=document.getElementById("selType");
+DATA.types.forEach(t=>{
+  const o=document.createElement("option");o.value=t;o.textContent=t.charAt(0).toUpperCase()+t.slice(1)+"s";selT.appendChild(o);
+});
+
+// SVG / zoom
+const cont=document.getElementById("graph");
+const W=()=>cont.clientWidth,H=()=>cont.clientHeight;
+const svg=d3.select("#graph").append("svg");
+const defs=svg.append("defs");
+[...new Set(DATA.edges.map(e=>e.label))].forEach(t=>{
+  defs.append("marker").attr("id","arr-"+t)
+    .attr("viewBox","0 -4 8 8").attr("refX",24).attr("refY",0)
+    .attr("markerWidth",5).attr("markerHeight",5).attr("orient","auto")
+    .append("path").attr("d","M0,-4L8,0L0,4").attr("fill",ec(t));
+});
+const g=svg.append("g");
+const zoom=d3.zoom().scaleExtent([0.05,6]).on("zoom",e=>g.attr("transform",e.transform));
+svg.call(zoom);
+
+let fR="all",fT="all",fS="";
+
+function getSelectedConcepts(){
+  return Array.from(selectedConcepts);
+}
+
+function getVisible(){
+  let ids=new Set(DATA.nodes.map(n=>n.id));
+
+  const conceptSelection = getSelectedConcepts();
+  if (conceptSelection.length){
+    const vis=new Set(conceptSelection);
+    DATA.edges.forEach(e=>{
+      if (conceptSelection.includes(e.from) || conceptSelection.includes(e.to)) {
+        vis.add(e.from);
+        vis.add(e.to);
+      }
+    });
+    ids=vis;
+  }
+
+  // Expand a seed set by `hops` steps along edges (within `within`), so filtered
+  // nodes bring along enough context (e.g. entry -> sense -> concept) to stay meaningful
+  // instead of showing disconnected, unlabeled fragments.
+  function expandHops(seed,within,hops){
+    let keep=new Set(seed);
+    for(let i=0;i<hops;i++){
+      const next=new Set(keep);
+      DATA.edges.forEach(e=>{
+        if(keep.has(e.from)&&within.has(e.to))next.add(e.to);
+        if(keep.has(e.to)&&within.has(e.from))next.add(e.from);
+      });
+      keep=next;
+    }
+    return keep;
+  }
+
+  if(fR!=="all"){
+    const keep = new Set();
+    DATA.nodes.forEach(n => {
+      if (!ids.has(n.id)) return;
+      if (n.role === fR || n.type === "sense" || n.type === "disease" || n.type === "symptom") {
+        keep.add(n.id);
+      }
+    });
+    ids = keep;
+  }
+
+  if(fT!=="all"){
+    const keep = new Set();
+    DATA.nodes.forEach(n => {
+      if (!ids.has(n.id)) return;
+      if (n.type === fT || n.type === "disease" || n.type === "symptom" || n.type === "sense" || n.type.startsWith("entry_")) {
+        keep.add(n.id);
+      }
+    });
+    ids = keep;
+  }
+
+  if(fS){
+    const q=fS.toLowerCase();
+    const matches=new Set(DATA.nodes.filter(n=>
+      ids.has(n.id)&&(
+        n.label.toLowerCase().includes(q)||
+        (n.alts||[]).some(a=>a.toLowerCase().includes(q))||
+        (n.otherForms||[]).some(a=>a.toLowerCase().includes(q))
+      )
+    ).map(n=>n.id));
+    ids=expandHops([...matches],ids,2);
+  }
+
+  const nodes=DATA.nodes.filter(n=>ids.has(n.id)).map(n=>({...n}));
+  const ns=new Set(nodes.map(n=>n.id));
+  const edges=DATA.edges.filter(e=>ns.has(e.from)&&ns.has(e.to));
+  return{nodes,edges};
+}
+
+function render(){
+  g.selectAll("*").remove();
+  const{nodes,edges}=getVisible();
+  const nm={};nodes.forEach(n=>nm[n.id]=n);
+  document.getElementById("stats").textContent=nodes.length+" nodes · "+edges.length+" edges";
+
+  // denotes duplicates reference visually — exclude from render, kept in data for SPARQL
+  const links=edges.filter(e=>e.label!=="denotes").map(e=>({source:nm[e.from],target:nm[e.to],label:e.label})).filter(l=>l.source&&l.target);
+
+  const sim=d3.forceSimulation(nodes)
+    .force("link",d3.forceLink(links).id(d=>d.id)
+      .distance(d=>{
+        if(d.label==="hasSymptom"||d.label==="mayIndicate") return 120;
+        if(d.label==="translation") return 130;
+        if(d.label==="registerVariant") return 65;
+        if(d.label==="reference") return 80;
+        return 50;
+      }).strength(0.6))
+    .force("charge",d3.forceManyBody().strength(-450))
+    .force("center",d3.forceCenter(0,0))
+    .force("collide",d3.forceCollide(d=>nr(d)+14));
+
+  const lg=g.append("g").selectAll("g").data(links).join("g");
+  const lines=lg.append("line").attr("class","link")
+    .attr("stroke",d=>ec(d.label))
+    .attr("stroke-width",d=>["hasSymptom","mayIndicate","translation"].includes(d.label)?2:1)
+    .attr("stroke-dasharray",d=>
+      d.label==="translation"?"6,3":
+      d.label==="registerVariant"?"3,2":null)
+    .attr("marker-end",d=>"url(#arr-"+d.label+")");
+
+  const llabels=lg.append("text").attr("class","link-label")
+    .text(d=>["reference","translation","registerVariant","hasSymptom","mayIndicate"].includes(d.label)?d.label:"");
+
+  const ng=g.append("g").selectAll("g").data(nodes).join("g").attr("class","node")
+    .call(d3.drag()
+      .on("start",(ev,d)=>{if(!ev.active)sim.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;})
+      .on("drag", (ev,d)=>{d.fx=ev.x;d.fy=ev.y;})
+      .on("end",  (ev,d)=>{if(!ev.active)sim.alphaTarget(0);d.fx=null;d.fy=null;}))
+    .on("click",    (ev,d)=>highlight(d,ng,lines,llabels))
+    .on("mouseover",(ev,d)=>showTip(ev,d))
+    .on("mousemove",moveTip)
+    .on("mouseout", hideTip);
+
+  ng.append("circle")
+    .attr("r",d=>nr(d))
+    .attr("fill",d=>nc(d))
+    .attr("stroke",d=>d3.color(nc(d)).darker(0.8))
+    .attr("fill-opacity",0.9);
+
+  ng.each(function(d){
+    if(d.type==="sense")return;
+    const el=d3.select(this),parts=d.label.split("\n");
+    parts.forEach((line,i)=>{
+      el.append("text").attr("text-anchor","middle")
+        .attr("dy",parts.length===1?"0.35em":i===0?"-0.15em":"1.05em")
+        .attr("font-size",["disease","symptom"].includes(d.type)?"9px":"10px")
+        .text(line);
+    });
+  });
+
+  sim.on("tick",()=>{
+    lines
+      .attr("x1",d=>d.source.x).attr("y1",d=>d.source.y)
+      .attr("x2",d=>{const dx=d.target.x-d.source.x,dy=d.target.y-d.source.y,dist=Math.sqrt(dx*dx+dy*dy)||1;return d.target.x-(dx/dist)*(nr(d.target)+2);})
+      .attr("y2",d=>{const dx=d.target.x-d.source.x,dy=d.target.y-d.source.y,dist=Math.sqrt(dx*dx+dy*dy)||1;return d.target.y-(dy/dist)*(nr(d.target)+2);});
+    llabels.attr("x",d=>(d.source.x+d.target.x)/2).attr("y",d=>(d.source.y+d.target.y)/2-5);
+    ng.attr("transform",d=>`translate(${d.x},${d.y})`);
+  });
+
+  const scale=nodes.length>100?0.22:nodes.length>50?0.35:nodes.length>20?0.55:0.75;
+  setTimeout(()=>svg.transition().duration(600).call(zoom.transform,d3.zoomIdentity.translate(W()/2,H()/2).scale(scale)),400);
+  svg.on("click.bg",ev=>{if(ev.target===svg.node())clearHL(ng,lines,llabels);});
+}
+
+function highlight(d,ng,lines,llabels){
+  const conn=new Set([d.id]);
+  lines.each(l=>{if(l.source.id===d.id)conn.add(l.target.id);if(l.target.id===d.id)conn.add(l.source.id);});
+  ng.classed("highlighted",n=>n.id===d.id).classed("dimmed",n=>!conn.has(n.id));
+  lines.classed("dimmed",l=>!conn.has(l.source.id)||!conn.has(l.target.id));
+  llabels.classed("dimmed",l=>!conn.has(l.source.id)||!conn.has(l.target.id));
+}
+function clearHL(ng,lines,llabels){
+  ng.classed("highlighted dimmed",false);lines.classed("dimmed",false);llabels.classed("dimmed",false);
+}
+
+const tip=document.getElementById("tip");
+function typeLabel(n){
+  if(n.type.startsWith("entry_"))return`LexicalEntry · ${n.lang?.toUpperCase()} · ${ROLE_LABELS[n.role]||n.role}`;
+  if(n.type==="sense")return"LexicalSense";
+  if(n.type==="disease")return"Disease (SNOMED)";
+  if(n.type==="symptom")return"Symptom (SNOMED)";
+  return n.type;
+}
+function showTip(ev,d){
+  const col=nc(d);
+  const forms=(d.otherForms||[]).filter(Boolean);
+  const alts=(d.alts||[]).filter(Boolean);
+  const symp=(d.symp||[]).filter(Boolean);
+  const sty=(d.sty||[]).filter(Boolean);
+  let html=`<strong>${d.label.replace(/\n/g," ")}</strong><span class="uri">${d.id}</span>`;
+  if(forms.length) html+=`<span class="alt">also: ${forms.join(" · ")}</span>`;
+  if(alts.length)  html+=`<span class="alt">${alts[0]}</span>`;
+  if(symp.length)  html+=`<span class="alt">SYMP: ${symp.map(s=>s.split("/").pop()).join(", ")}</span>`;
+  if(sty.length)   html+=`<span class="alt">STY: ${sty.map(s=>s.split("/").pop()).join(", ")}</span>`;
+  html+=`<span class="badge" style="background:${col}22;color:${col};border:1px solid ${col}44">${typeLabel(d)}</span>`;
+  tip.innerHTML=html;
+  tip.style.opacity="1";moveTip(ev);
+}
+function moveTip(ev){tip.style.left=(ev.clientX+16)+"px";tip.style.top=(ev.clientY-12)+"px";}
+function hideTip(){tip.style.opacity="0";}
+
+selR.addEventListener("change",()=>{fR=selR.value;render();});
+selT.addEventListener("change",()=>{fT=selT.value;render();});
+document.getElementById("search").addEventListener("input",function(){fS=this.value.trim();render();});
+document.getElementById("btnReset").onclick=()=>svg.transition().duration(500).call(zoom.transform,d3.zoomIdentity.translate(W()/2,H()/2).scale(0.5));
+document.getElementById("btnClear").onclick=()=>{
+  document.querySelectorAll(".node").forEach(el=>el.classList.remove("highlighted","dimmed"));
+  document.querySelectorAll(".link,.link-label").forEach(el=>el.classList.remove("dimmed"));
+};
+
+// Pre-select concept from server-injected defaultConcept
+if (DATA.defaultConcept && DATA.concepts[DATA.defaultConcept]) {
+  selectedConcepts.add(DATA.defaultConcept);
+}
+
+renderConceptPicker();
+render();
+</script>
+</body>
+</html>

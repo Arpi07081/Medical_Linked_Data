@@ -1,0 +1,239 @@
+Disease SNOMED,Symptom SNOMED,SYMP_ID,English Symptom,Spanish Symptom,Source
+195967001,49727002,SYMP_0000799,Cough with or without phlegm (sputum) production,Tos con o sin producción de flema (esputo),https://medlineplus.gov/ency/article/000141.htm
+195967001,9251003,,Pulling in of the skin between the ribs when breathing (intercostal retractions),Retracción de la piel entre las costillas al respirar (tiraje intercostal),https://medlineplus.gov/ency/article/000141.htm
+195967001,230145002,SYMP_0019153,Shortness of breath that gets worse with exercise or activity,Dificultad para respirar que empeora con el ejercicio o la actividad,https://medlineplus.gov/ency/article/000141.htm
+195967001,56018004,SYMP_0000604,Whistling sound or wheezing as you breathe,Silbidos o sibilancias cuando respira,https://medlineplus.gov/ency/article/000141.htm
+195967001,29857009,SYMP_0000576,Pain or tightness in the chest,Dolor o rigidez en el pecho,https://medlineplus.gov/ency/article/000141.htm
+195967001,193462001,SYMP_0000908,Difficulty sleeping,Dificultad para dormir,https://medlineplus.gov/ency/article/000141.htm
+195967001,248587003,SYMP_0000514,Abnormal breathing pattern (breathing out takes more than twice as long as breathing in),Patrón de respiración anormal (la expiración dura el doble de tiempo que la inhalación),https://medlineplus.gov/ency/article/000141.htm
+73211009,246636008,SYMP_0000053,Blurry vision,Visión borrosa,https://medlineplus.gov/ency/article/001214.htm
+73211009,17173007,SYMP_0000472,Excess thirst,Sed excesiva,https://medlineplus.gov/ency/article/001214.htm
+73211009,84229001,SYMP_0019177,Fatigue,Fatiga,https://medlineplus.gov/ency/article/001214.htm
+73211009,84273009,SYMP_0000480,Frequent urination,Orina frecuente,https://medlineplus.gov/ency/article/001214.htm
+73211009,75440003,,Hunger,Hambre,https://medlineplus.gov/ency/article/001214.htm
+73211009,89362005,SYMP_0000341,Weight loss,Pérdida de peso,https://medlineplus.gov/ency/article/001214.htm
+38341003,25064002,SYMP_0000181,Severe headache,Dolor de cabeza fuerte,http://medlineplus.gov/ency/article/000468.htm
+38341003,16932000,SYMP_0000459,Nausea and vomiting,Náuseas o vómitos,http://medlineplus.gov/ency/article/000468.htm
+38341003,40917007,SYMP_0000414,Confusion,Confusión,http://medlineplus.gov/ency/article/000468.htm
+38341003,246636008,SYMP_0000053,Vision changes,Cambios en la visión,http://medlineplus.gov/ency/article/000468.htm
+38341003,12441001,SYMP_0000187,Nosebleeds,Sangrado nasal,http://medlineplus.gov/ency/article/000468.htm
+37796009,25064002,SYMP_0000181,Severe pain on one or both sides of the head,Dolor intenso en uno o ambos lados de la cabeza,https://medlineplus.gov/spanish/ency/article/003213.htm
+37796009,422587007,SYMP_0000459,Nausea,Náusea,https://medlineplus.gov/spanish/ency/article/003213.htm
+37796009,246636008,SYMP_0000053,Visual disturbances,Trastornos visuales,https://medlineplus.gov/spanish/ency/article/003213.htm
+37796009,404640003,SYMP_0000177,Dizziness,Mareo,https://medlineplus.gov/spanish/ency/article/003213.htm
+37796009,43724002,SYMP_0000152,Chills,Escalofríos,https://medlineplus.gov/spanish/ency/article/003213.htm
+37796009,84273009,SYMP_0000480,Increased urination,Aumento de la micción,https://medlineplus.gov/spanish/ency/article/003213.htm
+37796009,84229001,SYMP_0019177,Fatigue,Fatiga,https://medlineplus.gov/spanish/ency/article/003213.htm
+37796009,79890006,SYMP_0000032,Loss of appetite,Pérdida del apetito,https://medlineplus.gov/spanish/ency/article/003213.htm
+37796009,16932000,SYMP_0000459,Nausea and vomiting,Náuseas y vómitos,https://medlineplus.gov/spanish/ency/article/003213.htm
+37796009,9136000,SYMP_0000738,Sensitivity to light or sound,Sensibilidad a la luz o al sonido,https://medlineplus.gov/spanish/ency/article/003213.htm
+37796009,415690000,SYMP_0000290,Sweating,Sudoración,https://medlineplus.gov/spanish/ency/article/003213.htm
+414916001,162863004,,Having a BMI over 30.0 kg/m2,"Tener un IMC superior a 34,9 kg/m².",https://medlineplus.gov/ency/article/007297.htm
+35489007,35489007,SYMP_0000069,feeling sad - blue- unhappy- miserable or down,,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,162220000,SYMP_0000060,Agitation- restlessness- irritability and anger,,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,225606002,,Becoming withdrawn or isolated,,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,84229001,SYMP_0019177,Fatigue and lack of energy,,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,35489007,SYMP_0000069,Feeling hopeless - helpless - worthless - guilty - and self-hate,,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,247474001,SYMP_0000069,Loss of interest or pleasure in activities that were once enjoyed including sex,,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,79890006,SYMP_0000032,Sudden change in appetite often with weight gain or loss,,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,76039005,SYMP_0000414,Trouble concentrating,,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,193462001,SYMP_0000908,Trouble sleeping or sleeping too much,,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,,,,sentirse triste - melancólico - infeliz - abatido o derrumbado,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,,,,Agitación - inquietud - irritabilidad e ira,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,,,,Volverse retraído o aislarse,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,,,,Fatiga y falta de energía,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,,,,Sentimientos de desesperanza - impotencia - inutilidad - culpabilidad y odio a sí mismo,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,,,,Pérdida de interés o placer en actividades que antes disfrutaba,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,,,,incluyendo el sexo,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,,,,Cambio repentino en el apetito,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,,,,a menudo con aumento o pérdida de peso,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,,,,Problemas para concentrarse,https://medlineplus.gov/spanish/ency/article/003213.htm
+35489007,,,,Problemas para conciliar el sueño o exceso de sueño,https://medlineplus.gov/spanish/ency/article/003213.htm
+197480006,48694002,SYMP_0000060,Anxious thoughts or beliefs that are hard to control - They make you feel restless and tense and interfere with your daily life - They do not go away and can get worse over time,,https://medlineplus.gov/anxiety.html
+197480006,80313002,SYMP_0000220,Pounding or rapid heartbeat,,https://medlineplus.gov/anxiety.html
+197480006,22253000,SYMP_0000255,unexplained aches and pains,,https://medlineplus.gov/anxiety.html
+197480006,404640003,SYMP_0000177,dizziness,,https://medlineplus.gov/anxiety.html
+197480006,230145002,SYMP_0019153,shortness of breath,,https://medlineplus.gov/anxiety.html
+197480006,248093009,,Changes in behavior - such as avoiding everyday activities you used to do,,https://medlineplus.gov/anxiety.html
+197480006,,,,Pensamientos o creencias ansiosos difíciles de controlar: Le hacen sentir inquieto y tenso e interfieren con su vida diaria. No desaparecen y pueden empeorar con el tiempo,https://medlineplus.gov/anxiety.html
+197480006,,,,Síntomas físicos - como latidos cardíacos fuertes o rápidos - dolores y molestias inexplicables - mareos y falta de aire,https://medlineplus.gov/anxiety.html
+197480006,,,,Cambios en el comportamiento - como evitar las actividades cotidianas que solía hacer,https://medlineplus.gov/anxiety.html
+57676002,57676002,SYMP_0000255,Joint pain - swelling - stiffness and limited movement,,https://medlineplus.gov/ency/article/001243.htm
+57676002,57656006,,Joint deformity,,https://medlineplus.gov/ency/article/001243.htm
+57676002,299377003,,Reduced ability to move the joint,,https://medlineplus.gov/ency/article/001243.htm
+57676002,444848003,,Redness and warmth of the skin around a joint,,https://medlineplus.gov/ency/article/001243.htm
+57676002,57676002,SYMP_0000255,Joint stiffness - especially in the morning,,https://medlineplus.gov/ency/article/001243.htm
+57676002,,,,dolor,https://medlineplus.gov/ency/article/001243.htm
+57676002,,,,hinchazón,https://medlineplus.gov/ency/article/001243.htm
+57676002,,,,rigidez y movimiento limitado en la articulación,https://medlineplus.gov/ency/article/001243.htm
+57676002,,,,Deformidad articular,https://medlineplus.gov/ency/article/001243.htm
+57676002,,,,Disminución de la capacidad para mover la articulación,https://medlineplus.gov/ency/article/001243.htm
+57676002,,,,Enrojecimiento y calor de la piel alrededor de una articulación,https://medlineplus.gov/ency/article/001243.htm
+57676002,,,,Rigidez articular - especialmente en la mañana,https://medlineplus.gov/ency/article/001243.htm
+363346000,,,Symptoms of cancer depend on the type and location of the cancer. For example,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,49727002,SYMP_0000799,lung cancer can cause coughing,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,230145002,SYMP_0019153,shortness of breath,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,or chest pain. Colon cancer may cause diarrhea,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,14760008,SYMP_0000099,constipation,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,or blood in the stool. The following symptoms may occur with cancer:,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,43724002,SYMP_0000152,Chills,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,84229001,SYMP_0019177,Fatigue,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,386661006,SYMP_0000127,Fever,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,79890006,SYMP_0000032,Loss of appetite,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,367391008,SYMP_0019177,Malaise,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,42984000,SYMP_0000290,Night sweats,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,22253000,SYMP_0000255,Pain,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,89362005,SYMP_0000341,Weight loss,,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,,Los síntomas del cáncer dependen del tipo y localización del tumor. Por ejemplo,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,,el cáncer de pulmón puede provocar tos,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,,dificultad respiratoria o dolor torácico. El cáncer de colon puede ocasionar diarrea,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,,estreñimiento y sangre en las heces. Los siguientes síntomas pueden ocurrir con el cáncer:,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,,Escalofríos,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,,Fatiga,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,,Fiebre,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,,Pérdida del apetito,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,,Malestar general,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,,Sudores nocturnos,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,,Dolor,https://medlineplus.gov/spanish/ency/article/001289.htm
+363346000,,,,Pérdida de peso,https://medlineplus.gov/spanish/ency/article/001289.htm
+56265001,29857009,SYMP_0000576,Chest pain,El dolor de pecho,https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,84229001,SYMP_0019177,Fatigue,Fatiga,https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,230145002,SYMP_0019153,Shortness of breath,Dificultad para respirar,https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,13791008,SYMP_0019177,General weakness,Debilidad general,https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,271807003,,Change in skin color or greyish pallor (episodes of change in skin color associated with weakness),Cambios en el color de piel o palidez grisácea (episodios de cambios en la piel asociados con debilidad),https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,48694002,SYMP_0000060,Extreme anxiety,Ansiedad extrema,https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,419045004,SYMP_0000085,Fainting or loss of consciousness,Desmayos o pérdida de la conciencia,https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,404640003,SYMP_0000177,Lightheadedness or dizziness,Mareos o aturdimiento,https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,16932000,SYMP_0000459,Nausea or vomiting,Náusea o vómitos,https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,80313002,SYMP_0000220,"Palpitations (feeling like your heart is beating too fast, too strongly, or irregularly)","Palpitaciones (sensación de que su corazón está latiendo demasiado rápido, demasiado fuerte o de manera irregular)",https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,230145002,SYMP_0019153,Shortness of breath,Dificultad para respirar,https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,415690000,SYMP_0000290,Sweating - which may be very heavy,Sudoración - que puede ser muy intensa,https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,267038008,SYMP_0000289,Swelling in the Legs - Ankles or Feet,Inflamación de las piernas - tobillos o pies,https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,22253000,SYMP_0000255,Pain - achiness - fatigue - burning or discomfort in the muscles of your feet - calves or thighs,Dolor - malestar - fatiga - ardor o incomodidad en los músculos de sus pies - pantorrillas o muslos,https://medlineplus.gov/ency/patientinstructions/000775.htm
+56265001,80313002,SYMP_0000220,Fast or Uneven Heartbeat (Palpitations),Ritmo cardíaco rápido o irregular (palpitaciones),https://medlineplus.gov/ency/patientinstructions/000775.htm
+230690007,25064002,SYMP_0000181,headache,,https://medlineplus.gov/ency/article/000726.htm
+230690007,419045004,SYMP_0000085,"Change in alertness (including sleepiness, unconsciousness, and coma)",,https://medlineplus.gov/ency/article/000726.htm
+230690007,247355005,,Changes in hearing or taste,,https://medlineplus.gov/ency/article/000726.htm
+230690007,44077006,SYMP_0000315,Changes that affect touch and the ability to feel pain,,https://medlineplus.gov/ency/article/000726.htm
+230690007,22253000,SYMP_0000255,pressure,,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,or different temperatures,,https://medlineplus.gov/ency/article/000726.htm
+230690007,40917007,SYMP_0000414,Confusion or loss of memory,,https://medlineplus.gov/ency/article/000726.htm
+230690007,40739000,SYMP_0000279,Problems swallowing,,https://medlineplus.gov/ency/article/000726.htm
+230690007,50720008,,Problems writing or reading,,https://medlineplus.gov/ency/article/000726.htm
+230690007,404640003,SYMP_0000177,Dizziness or abnormal feeling of movement (vertigo),,https://medlineplus.gov/ency/article/000726.htm
+230690007,246636008,SYMP_0000053,Eyesight problems,,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,such as decreased vision,,https://medlineplus.gov/ency/article/000726.htm
+230690007,24982008,SYMP_0000053,double vision,,https://medlineplus.gov/ency/article/000726.htm
+230690007,246636008,SYMP_0000053,or total loss of vision,,https://medlineplus.gov/ency/article/000726.htm
+230690007,129584002,,Lack of control over the bladder or bowels,,https://medlineplus.gov/ency/article/000726.htm
+230690007,387732009,SYMP_0000319,Loss of balance or coordination,,https://medlineplus.gov/ency/article/000726.htm
+230690007,387732009,,or trouble walking,,https://medlineplus.gov/ency/article/000726.htm
+230690007,57676002,SYMP_0000332,Muscle weakness in the face,,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,arm,,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,or leg (usually just on one side),,https://medlineplus.gov/ency/article/000726.htm
+230690007,44077006,SYMP_0000315,Numbness or tingling on one side of the body,,https://medlineplus.gov/ency/article/000726.htm
+230690007,248093009,,Personality,,https://medlineplus.gov/ency/article/000726.htm
+230690007,248093009,,mood,,https://medlineplus.gov/ency/article/000726.htm
+230690007,248093009,,or emotional changes,,https://medlineplus.gov/ency/article/000726.htm
+230690007,29164008,SYMP_0000364,Trouble speaking or understanding others who are speaking,,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,dolor de cabeza,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,"Cambio en la lucidez mental (incluso, somnolencia, pérdida del conocimiento y coma)",https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,Cambios en la audición o en el sentido del gusto,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,Cambios que afectan el tacto y la capacidad de sentir dolor,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,presión o temperaturas diferentes,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,Confusión o pérdida de memoria,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,Dificultad para deglutir,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,Dificultad para leer o escribir,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,Mareos o sensación anormal de movimiento (vértigo),https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,Problemas con la vista,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,como disminución de la visión,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,visión doble o ceguera total,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,Falta de control de esfínteres,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,Pérdida del equilibrio o coordinación,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,o problemas para caminar,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,Debilidad muscular en la cara,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,el brazo o la pierna (por lo regular solo en un lado),https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,Entumecimiento u hormigueo en un lado del cuerpo,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,Cambios emocionales,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,de personalidad o de estado de ánimo,https://medlineplus.gov/ency/article/000726.htm
+230690007,,,,Problemas para hablar o entender a otros que estén hablando,https://medlineplus.gov/ency/article/000726.htm
+26929004,55533009,SYMP_0000412,Forgetfulness,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,76039005,,difficulty doing more than one task at a time,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,76039005,,difficulty solving problems or making decisions,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,55533009,SYMP_0000412,forgetting names of familiar people - recent events - or conversations,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,76039005,,taking longer to do difficult mental activities,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,76039005,,difficulty performing familiar tasks,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,225606002,,getting lost on familiar routes,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,35489007,SYMP_0000069,flat mood,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,29164008,SYMP_0000364,language problems - losing interest in previously enjoyed activities,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,55533009,SYMP_0000412,misplacing items,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,248093009,,mood changes,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,61372001,,aggressive behavior,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,248093009,,personality changes,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,225606002,,loss of social skills,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,76039005,,poor performance of job duties,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,193462001,SYMP_0000908,changes in sleep patterns,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,35489007,SYMP_0000069,delusions - depression - agitation,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,76039005,,difficulty performing basic tasks,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,50720008,,difficulty reading or writing,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,55533009,SYMP_0000412,forgetting details about current events,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,55533009,SYMP_0000412,forgetting events from one's life history and losing self-awareness,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,7011001,SYMP_0000412,hallucinations,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,76039005,,poor judgment and loss of ability to recognize danger,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,29164008,SYMP_0000364,using the wrong words - mispronouncing words - or speaking in confusing sentences,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,61372001,,violent behavior,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,225606002,,withdrawal from social contact,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,225606002,,inability to recognize family members,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,76039005,,inability to perform basic daily activities - such as eating - dressing - and bathing,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,29164008,SYMP_0000364,difficulty understanding language,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,129584002,,loss of bowel or bladder control,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,40739000,SYMP_0000279,swallowing problems,,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,Olvido,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,dificultad para realizar más de una tarea a la vez,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,dificultad para resolver problemas o tomar decisiones,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,olvidar nombres de personas conocidas - eventos recientes - o conversaciones,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,necesitar más tiempo para llevar a cabo actividades mentales más difíciles,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,dificultad para realizar tareas que solían ser fáciles,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,perderse en rutas conocidas,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,tener un estado de ánimo apático,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,problemas del lenguaje,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,perder interés en actividades que antes disfrutaba,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,extraviar artículos,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,cambios de ánimo,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,conductas agresivas,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,cambios de personalidad,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,pérdida de habilidades sociales,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,desempeño deficiente en deberes laborales,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,cambio en los patrones de sueño,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,delirios,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,depresión,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,agitación,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,dificultad para realizar tareas básicas,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,dificultad para leer o escribir,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,olvidar detalles acerca de hechos cotidianos,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,olvidar hechos de la historia de su propia vida,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,perder la noción de quién es,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,alucinaciones,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,deficiente capacidad de discernimiento,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,pérdida de la capacidad para reconocer el peligro,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,uso de palabras erróneas,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,no pronunciar las palabras correctamente,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,hablar con frases confusas,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,conducta violenta,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,retraerse del contacto social,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,no poder reconocer a los miembros de la familia,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,no poder llevar a cabo actividades básicas de la vida diaria,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,no poder entender el lenguaje,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,problemas para controlar las deposiciones o la orina,https://medlineplus.gov/spanish/ency/article/000760.htm
+26929004,,,,problemas para tragar,https://medlineplus.gov/spanish/ency/article/000760.htm
+84757009,91175000,SYMP_0000074,violent shaking,temblores violentos,
+84757009,419045004,SYMP_0000085,loss of alertness,pérdida de la lucidez mental,
+84757009,91175000,SYMP_0000074,convulsions,convulsiones,
+84757009,44077006,SYMP_0000315,tingling sensations,hormigueo,
+84757009,44327005,,smelling an odor that is not actually there,sentir un olor que realmente no existe,
+84757009,248093009,,emotional changes,cambios emocionales,
+84757009,248093009,,changes in behavior,cambios en el comportamiento,
+84757009,40917007,SYMP_0000414,impaired awareness,alteración de la conciencia,
+84757009,91175000,SYMP_0000074,abnormal movements involving the whole body,movimientos anormales que involucran todo el cuerpo,
+84757009,91175000,,clenching of the jaw,constricción de la mandíbula,
+84757009,129584002,,loss of control of the urine or bowels,pérdida del control de la vejiga y los intestinos,

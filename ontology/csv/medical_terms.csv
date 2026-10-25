@@ -1,0 +1,22 @@
+English Common Term,English Main Term,Spanish Common Term,Spanish Main Term,SNOMED Concept ID,dc:type
+Asthma,Asthma,Asma,asma (trastorno),195967001,disease
+Diabetes,Diabetes mellitus (disorder),Diabetes,diabetes mellitus (trastorno),73211009,disease
+High blood pressure,"Hypertensive disorder, systemic arterial (disorder)",Presión arterial alta,trastorno hipertensivo arterial sistémico (trastorno),38341003,disease
+Migraine,Migraine (disorder),Migraña,migraña (trastorno),37796009,disease
+Obesity,Obesity (disorder),Obesidad,obesidad (trastorno),414916001,disease
+Depression,Depressive disorder (disorder),Depresión,trastorno depresivo (trastorno),35489007,disease
+Anxiety,Anxiety disorder (disorder),Ansiedad,trastorno de ansiedad (trastorno),197480006,disease
+Arthritis,Arthritis (disorder),Artritis,dolor de articulación (hallazgo),57676002,disease
+Cancer,Malignant neoplastic disease (disorder),Cáncer,neoplasia maligna (trastorno),363346000,disease
+Heart disease,Heart disease (disorder),Enfermedad cardíaca,cardiopatía (trastorno),56265001,disease
+Stroke,Cerebrovascular accident (disorder),Accidente cerebrovascular,accidente cerebrovascular (trastorno),230690007,disease
+Alzheimer's disease,Alzheimer's disease (disorder),Enfermedad de Alzheimer,enfermedad de Alzheimer (trastorno),26929004,disease
+Epilepsy,Epilepsy (disorder),Epilepsia,epilepsia (trastorno),84757009,disease
+Osteoporosis,Osteoporosis (disorder),Osteoporosis,osteoporosis (trastorno),64859006,disease
+Chronic pain,Chronic pain (finding),Dolor crónico,dolor crónico (hallazgo),82423001,symptom
+Insomnia,Insomnia (disorder),Insomnio,insomnio (trastorno),193462001,symptom
+Anemia,Anemia (disorder),Anemia,anemia (trastorno),271737000,disease
+Pneumonia,Pneumonia (disorder),Neumonía,neumonía (trastorno),233604007,disease
+Influenza,Influenza (disorder),Influenza,gripe (trastorno),6142004,disease
+Allergies,Allergic condition (finding),Alergias,condición alérgica (hallazgo),473011001,symptom
+Heart attack,Myocardial infarction (disorder),Ataque al corazón,infarto de miocardio (trastorno),22298006,disease

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Developer Tools | Knowledge Graph Studio</title>
+  <style>
+    :root { --ink: #192528; --muted: #657375; --paper: #f7f4ed; --panel: #fffdf8; --line: #d7d7cc; --teal: #0c6b69; --error: #9e3032; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(25,37,40,.035) 32px), var(--paper); font-family: Georgia, "Times New Roman", serif; }
+    main { width: min(820px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0 72px; }
+    header { border-bottom: 3px solid var(--ink); padding-bottom: 28px; margin-bottom: 30px; }
+    .eyebrow { color: var(--teal); font: 700 12px/1.2 Verdana, sans-serif; letter-spacing: 1.4px; text-transform: uppercase; }
+    h1 { font-size: clamp(38px, 6vw, 58px); font-weight: 400; margin: 8px 0 10px; }
+    header p, .intro { color: var(--muted); font-size: 16px; line-height: 1.5; margin: 0; }
+    section { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; box-shadow: 5px 5px 0 rgba(25,37,40,.08); margin-bottom: 22px; padding: 28px; }
+    h2 { font-size: 24px; font-weight: 400; margin: 0 0 8px; }
+    .dataset { background: #e7f1ed; border-left: 4px solid var(--teal); font: 13px/1.5 Verdana, sans-serif; margin: 20px 0; padding: 12px 14px; }
+    label { display: block; font: 700 12px/1.2 Verdana, sans-serif; letter-spacing: .8px; margin: 18px 0 7px; text-transform: uppercase; }
+    input { background: #fff; border: 1px solid #aeb7b3; border-radius: 3px; color: var(--ink); font: 15px Georgia, serif; padding: 11px; width: 100%; }
+    textarea { background: #fff; border: 1px solid #aeb7b3; border-radius: 3px; color: var(--ink); font: 14px "SFMono-Regular", Consolas, monospace; padding: 11px; width: 100%; min-height: 140px; resize: vertical; }
+    button { background: var(--teal); border: 0; border-radius: 3px; color: white; cursor: pointer; font: 700 14px Verdana, sans-serif; margin-top: 20px; padding: 13px 18px; }
+    button:hover { background: #074f4d; }
+    .secondary { background: transparent; border: 1px solid var(--error); color: var(--error); }
+    .notice { border-left: 4px solid var(--teal); margin: 0 0 18px; padding: 11px 13px; background: #e7f1ed; }
+    .notice.error { border-color: var(--error); background: #f8eaea; }
+    a { color: var(--teal); font: 700 13px Verdana, sans-serif; }
+    table { border-collapse: collapse; font: 13px/1.4 "SFMono-Regular", Consolas, monospace; margin-top: 18px; width: 100%; }
+    th, td { border: 1px solid var(--line); padding: 7px 10px; text-align: left; overflow-wrap: anywhere; }
+    th { background: #eef0e8; }
+    .shared-list { display: grid; gap: 12px; margin-top: 18px; }
+    .shared-item { background: #f6f8f3; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
+    .shared-item summary {
+      list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 14px 16px; font: 700 14px Verdana, sans-serif; color: var(--ink);
+    }
+    .shared-item summary::-webkit-details-marker { display: none; }
+    .shared-item summary::after {
+      content: "+"; font-size: 22px; line-height: 1; color: var(--teal);
+    }
+    .shared-item[open] summary::after { content: "−"; }
+    .shared-item ul { margin: 0; padding: 0 16px 16px 34px; }
+    .shared-item li { color: var(--muted); line-height: 1.6; }
+    @media (max-width: 760px) { main { width: min(100% - 24px, 680px); padding-top: 30px; } section { padding: 21px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Testing administration</div>
+      <h1>Developer tools</h1>
+      <p>Load a Turtle test dataset for the public glossary tasks.</p>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}<p class="notice {{ category }}">{{ message }}</p>{% endfor %}
+    {% endwith %}
+
+    <section>
+      <h2>Active dataset</h2>
+      <p class="dataset"><strong>{{ dataset_name }}</strong><br>{% if is_test_dataset %}Uploaded test dataset{% else %}Bundled glossary dataset{% endif %}</p>
+      <p class="intro">Upload validation runs before activation. A valid file becomes the active dataset; the original `glossary.ttl` is not modified.</p>
+      <form method="post" enctype="multipart/form-data">
+        <input type="hidden" name="action" value="upload">
+        <label for="turtle-file">Turtle file (.ttl)</label>
+        <input id="turtle-file" type="file" name="turtle_file" accept=".ttl,text/turtle" required>
+        <button type="submit">Validate and activate</button>
+      </form>
+    </section>
+
+    {% if is_test_dataset %}
+    <section>
+      <h2>Restore bundled glossary</h2>
+      <p class="intro">Remove the active test dataset and return the public tasks to `glossary.ttl`.</p>
+      <form method="post"><input type="hidden" name="action" value="reset"><button class="secondary" type="submit">Restore default dataset</button></form>
+    </section>
+    {% endif %}
+
+    <section>
+      <h2>Shared symptoms</h2>
+      <p class="intro">Symptoms that are linked to more than one disease in the active dataset.</p>
+      {% if shared_symptoms %}
+      <div class="shared-list">
+        {% for item in shared_symptoms %}
+        <details class="shared-item" {% if loop.index == 1 %}open{% endif %}>
+          <summary>
+            <span>{{ item.symptom }}</span>
+            <strong>{{ item.disease_count }} disease{% if item.disease_count != 1 %}s{% endif %}</strong>
+          </summary>
+          <ul>
+            {% for disease in item.diseases.split(' · ') %}
+            <li>{{ disease }}</li>
+            {% endfor %}
+          </ul>
+        </details>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p class="intro">No symptoms are shared across multiple diseases in this dataset.</p>
+      {% endif %}
+    </section>
+
+    <section>
+      <h2>Run a SPARQL query</h2>
+      <p class="intro">Run a read-only SPARQL SELECT/ASK/CONSTRUCT/DESCRIBE query against the active dataset.</p>
+      <form method="post" action="{{ url_for('developer_sparql') }}">
+        <label for="sparql-query">SPARQL query</label>
+        <textarea id="sparql-query" name="sparql_query" placeholder="SELECT ?term WHERE { ?entry ontolex:canonicalForm [ ontolex:writtenRep ?term ] . }">{{ sparql_query }}</textarea>
+        <button type="submit">Run query</button>
+      </form>
+      {% if sparql_rows %}
+      <table>
+        <thead><tr>{% for column in sparql_columns %}<th>{{ column }}</th>{% endfor %}</tr></thead>
+        <tbody>{% for row in sparql_rows %}<tr>{% for value in row %}<td>{{ value }}</td>{% endfor %}</tr>{% endfor %}</tbody>
+      </table>
+      {% endif %}
+    </section>
+
+    <a href="{{ url_for('index') }}">Return to Knowledge Graph Studio</a>
+  </main>
+</body>
+</html>

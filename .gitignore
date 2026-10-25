@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+*__pycache__*
+*.pyc
+*.pyo
+*.pyd
+*.pycache/
+.DS_Store
+
+# virtual environment
+.venv/
+env/
+venv/
+venv/*
+*.venv/
+
+# owl files
+*.owl
